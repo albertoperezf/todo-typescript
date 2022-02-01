@@ -6,3 +6,9 @@
   width: 100%;
   max-width: 360;
 }
+
+.list-item {
+  margin: 0.5em 0;
+  border: solid rgb(25, 118, 210);
+  border-radius: 1em;
+}

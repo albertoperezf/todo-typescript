@@ -33,6 +33,7 @@ export default function CheckboxList(props: TodoListProps): ReactElement {
 
         return (
           <Item
+            className="list-item"
             key={name}
             secondaryAction={
               <>
