@@ -1,10 +1,19 @@
+// Libraries
+import { ReactElement } from "react";
+
+// Components
+import ButtonAppBar from "./components/AppBar";
+import Todo from "./components/Todo";
+
+// Styles
 import "./styles.css";
 
-export default function App() {
+export default function App(): ReactElement {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <ButtonAppBar />
+
+      <Todo />
     </div>
   );
 }
