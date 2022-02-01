@@ -14,8 +14,6 @@ import { TodoFilterProps } from "../types/types";
 export default function TodoFilter(props: TodoFilterProps): ReactElement {
   const { handleChange, value } = props;
 
-  console.log("Value: ", value);
-
   return (
     <FormControl>
       <FormLabel id="demo-row-radio-buttons-group-label">Show</FormLabel>

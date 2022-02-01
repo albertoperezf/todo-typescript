@@ -1,11 +1,5 @@
 // Libriries
-import {
-  ChangeEvent,
-  ReactElement,
-  SetStateAction,
-  useEffect,
-  useState
-} from "react";
+import { ChangeEvent, ReactElement, SetStateAction, useState } from "react";
 
 // Components
 import AddIcon from "@mui/icons-material/Add";
@@ -23,7 +17,6 @@ import "./Todo.css";
 
 export default function Todo(): ReactElement {
   const [todos, setTodos] = useState<todo[]>([]);
-  const [parseTodos, setParseTodos] = useState<todo[]>([]);
   const [newTodo, setNewTodo] = useState<string>("");
   const [visibility, setVisibility] = useState<Visibility>("all");
 
@@ -58,23 +51,12 @@ export default function Todo(): ReactElement {
   const handleFilter = (e: ChangeEvent<HTMLInputElement>) =>
     setVisibility(e.target.value);
 
-  useEffect(() => {
-    if (visibility === "completed") {
-      const parse = todos.filter(({ checked }) => checked === true);
-
-      console.log("Parse #1: ", parse);
-
-      setParseTodos(parse);
-    } else if (visibility === "pending") {
-      const parse = todos.filter(({ checked }) => checked === false);
-
-      console.log("Parse #2: ", parse);
-
-      setParseTodos(parse);
-    } else {
-      setParseTodos(todos);
-    }
-  }, [todos, visibility]);
+  const filteredTodos =
+    visibility === "completed"
+      ? todos.filter(({ checked }) => !!checked)
+      : visibility === "pending"
+      ? todos.filter(({ checked }) => !checked)
+      : todos;
 
   return (
     <div className="todos">
@@ -105,15 +87,15 @@ export default function Todo(): ReactElement {
         </Button>
       </Box>
 
-      {parseTodos.length > 0 && (
+      {filteredTodos.length > 0 && (
         <TodoFilter handleChange={handleFilter} value={visibility} />
       )}
 
-      {parseTodos.length > 0 && (
+      {filteredTodos.length > 0 && (
         <TodoList
           deleteTodo={deleteTodo}
           toggleTodo={checkTodo}
-          todos={parseTodos}
+          todos={filteredTodos}
         />
       )}
     </div>
