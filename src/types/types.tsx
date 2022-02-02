@@ -26,3 +26,10 @@ export interface TodoFilterProps extends TodoSearchProps {
   value: string;
   handleChange: (event: ChangeEvent<HTMLInputElement>, value: string) => void;
 }
+
+// Props for the TodoAdd component
+export interface TodoAddProps {
+  newTodo: string;
+  handleNewTodo: (e: { target: { value: SetStateAction<string> } }) => void;
+  addTodo: () => void;
+}

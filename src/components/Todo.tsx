@@ -2,10 +2,7 @@
 import { ChangeEvent, ReactElement, SetStateAction, useState } from "react";
 
 // Components
-import AddIcon from "@mui/icons-material/Add";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+import TodoAdd from "./TodoAdd";
 import TodoList from "./TodoList";
 import TodoFilter from "./TodoFilter";
 
@@ -72,34 +69,11 @@ export default function Todo(): ReactElement {
 
   return (
     <div className="todos">
-      <Box
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, height: "4em", width: "25ch" }
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <TextField
-          className="todos-input"
-          id="outlined-basic"
-          label="Add todo"
-          variant="outlined"
-          onChange={handleNewTodo}
-          value={newTodo}
-        />
-
-        <Button
-          className="todos-button"
-          disabled={newTodo === ""}
-          onClick={addTodo}
-          startIcon={<AddIcon />}
-          // size="small"
-          variant="outlined"
-        >
-          Add
-        </Button>
-      </Box>
+      <TodoAdd
+        addTodo={addTodo}
+        newTodo={newTodo}
+        handleNewTodo={handleNewTodo}
+      />
 
       {filteredTodoSearch.length > 0 && (
         <TodoFilter
