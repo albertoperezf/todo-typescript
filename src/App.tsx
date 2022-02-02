@@ -2,8 +2,8 @@
 import { ReactElement } from "react";
 
 // Components
-import ButtonAppBar from "./components/AppBar";
-import Todo from "./components/Todo";
+import ButtonAppBar from "./components/AppBar/AppBar";
+import Todo from "./components/Todo/Todo";
 
 // Styles
 import "./styles.css";

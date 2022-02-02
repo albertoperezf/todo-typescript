@@ -2,12 +2,12 @@
 import { ChangeEvent, ReactElement, SetStateAction, useState } from "react";
 
 // Components
-import TodoAdd from "./TodoAdd";
-import TodoList from "./TodoList";
-import TodoFilter from "./TodoFilter";
+import TodoAdd from "../TodoAdd/TodoAdd";
+import TodoList from "../TodoList/TodoList";
+import TodoFilter from "../TodoFilter/TodoFilter";
 
 // Types
-import { todo, Visibility } from "../types/types";
+import { todo, Visibility } from "../../types/types";
 
 // Styles
 import "./Todo.css";

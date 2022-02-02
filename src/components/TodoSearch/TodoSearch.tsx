@@ -8,9 +8,6 @@ import TextField from "@mui/material/TextField";
 // Types
 import { TodoSearchProps } from "../types/types";
 
-// Styles
-// import "./TodoFilter.css";
-
 /**
  * TodoSearch - Show a search box  to filter the Todos
  */
