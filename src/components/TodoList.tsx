@@ -24,7 +24,10 @@ import "./TodoList.css";
 // Memoizing the list to avoid unnecesary re-renders
 const Item = memo(ListItem);
 
-export default function CheckboxList(props: TodoListProps): ReactElement {
+/**
+ * TodoList - Display all the todos currently added on the app
+ */
+export default function TodoList(props: TodoListProps): ReactElement {
   const { deleteTodo, todos, toggleTodo } = props;
 
   return (

@@ -7,6 +7,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
+import TodoSearch from "./TodoSearch";
 
 // Types
 import { TodoFilterProps } from "../types/types";
@@ -14,8 +15,11 @@ import { TodoFilterProps } from "../types/types";
 // Styles
 import "./TodoFilter.css";
 
+/**
+ * TodoFilter - Show the filter posibilities for the TodoList
+ */
 export default function TodoFilter(props: TodoFilterProps): ReactElement {
-  const { handleChange, value } = props;
+  const { handleChange, handleSearchChange, searchValue, value } = props;
 
   return (
     <FormControl className="todo-filters">
@@ -41,6 +45,18 @@ export default function TodoFilter(props: TodoFilterProps): ReactElement {
         />
         <FormControlLabel value="pending" control={<Radio />} label="Pending" />
       </RadioGroup>
+
+      <FormLabel
+        className="todo-filters-label"
+        id="demo-row-radio-buttons-group-label"
+      >
+        Search
+      </FormLabel>
+
+      <TodoSearch
+        searchValue={searchValue}
+        handleSearchChange={handleSearchChange}
+      />
     </FormControl>
   );
 }

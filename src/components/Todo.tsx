@@ -15,14 +15,22 @@ import { todo, Visibility } from "../types/types";
 // Styles
 import "./Todo.css";
 
+/**
+ * Todo - Main component where is going to be displayed todo list, filters and field to add more todos
+ */
 export default function Todo(): ReactElement {
   const [todos, setTodos] = useState<todo[]>([]);
   const [newTodo, setNewTodo] = useState<string>("");
   const [visibility, setVisibility] = useState<Visibility>("all");
+  const [search, setSearch] = useState<string>("");
 
   const handleNewTodo = (e: {
     target: { value: SetStateAction<string> };
   }): void => setNewTodo(e.target.value);
+
+  const handleNewSearch = (event: {
+    target: { value: SetStateAction<string> };
+  }): void => setSearch(event.target.value);
 
   const addTodo = (): void => {
     const newTodos: todo[] = [
@@ -58,6 +66,10 @@ export default function Todo(): ReactElement {
       ? todos.filter(({ checked }) => !checked)
       : todos;
 
+  const filteredTodoSearch = !!search
+    ? filteredTodos.filter(({ name }) => name.includes(search))
+    : filteredTodos;
+
   return (
     <div className="todos">
       <Box
@@ -89,15 +101,20 @@ export default function Todo(): ReactElement {
         </Button>
       </Box>
 
-      {filteredTodos.length > 0 && (
-        <TodoFilter handleChange={handleFilter} value={visibility} />
+      {filteredTodoSearch.length > 0 && (
+        <TodoFilter
+          handleChange={handleFilter}
+          handleSearchChange={handleNewSearch}
+          searchValue={search}
+          value={visibility}
+        />
       )}
 
-      {filteredTodos.length > 0 && (
+      {filteredTodoSearch.length > 0 && (
         <TodoList
           deleteTodo={deleteTodo}
           toggleTodo={checkTodo}
-          todos={filteredTodos}
+          todos={filteredTodoSearch}
         />
       )}
     </div>
