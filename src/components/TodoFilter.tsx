@@ -2,22 +2,31 @@
 import { ReactElement } from "react";
 
 // Components
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 
 // Types
 import { TodoFilterProps } from "../types/types";
+
+// Styles
+import "./TodoFilter.css";
 
 export default function TodoFilter(props: TodoFilterProps): ReactElement {
   const { handleChange, value } = props;
 
   return (
-    <FormControl>
-      <FormLabel id="demo-row-radio-buttons-group-label">Show</FormLabel>
+    <FormControl className="todo-filters">
+      <FormLabel
+        className="todo-filters-label"
+        id="demo-row-radio-buttons-group-label"
+      >
+        Show
+      </FormLabel>
       <RadioGroup
+        className="todo-filters-group"
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"

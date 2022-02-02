@@ -69,6 +69,7 @@ export default function Todo(): ReactElement {
         autoComplete="off"
       >
         <TextField
+          className="todos-input"
           id="outlined-basic"
           label="Add todo"
           variant="outlined"
@@ -77,6 +78,7 @@ export default function Todo(): ReactElement {
         />
 
         <Button
+          className="todos-button"
           disabled={newTodo === ""}
           onClick={addTodo}
           startIcon={<AddIcon />}

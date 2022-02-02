@@ -1,0 +1,10 @@
+.todo-filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-filters-label {
+  margin-right: 1em;
+}
