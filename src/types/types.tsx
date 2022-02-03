@@ -1,3 +1,4 @@
+// Libraries
 import { ChangeEvent, SetStateAction } from "react";
 
 // Type for the todos of the list
@@ -25,6 +26,7 @@ export interface TodoSearchProps {
 export interface TodoFilterProps extends TodoSearchProps {
   value: string;
   handleChange: (event: ChangeEvent<HTMLInputElement>, value: string) => void;
+  todos: todo[];
 }
 
 // Props for the TodoAdd component

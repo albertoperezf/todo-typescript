@@ -19,7 +19,9 @@ import "./TodoFilter.css";
  * TodoFilter - Show the filter posibilities for the TodoList
  */
 export default function TodoFilter(props: TodoFilterProps): ReactElement {
-  const { handleChange, handleSearchChange, searchValue, value } = props;
+  const { handleChange, handleSearchChange, searchValue, todos, value } = props;
+  const completedTodos = todos.filter(({ checked }) => !!checked);
+  const pendingTodos = todos.filter(({ checked }) => !checked);
 
   return (
     <FormControl className="todo-filters">
@@ -37,13 +39,21 @@ export default function TodoFilter(props: TodoFilterProps): ReactElement {
         value={value}
         onChange={handleChange}
       >
-        <FormControlLabel value="all" control={<Radio />} label="All" />
+        <FormControlLabel
+          value="all"
+          control={<Radio />}
+          label={`All (${!!todos ? todos.length : 0})`}
+        />
         <FormControlLabel
           value="completed"
           control={<Radio />}
-          label="Completed"
+          label={`Completed (${!!completedTodos ? completedTodos.length : 0})`}
         />
-        <FormControlLabel value="pending" control={<Radio />} label="Pending" />
+        <FormControlLabel
+          value="pending"
+          control={<Radio />}
+          label={`Pending (${!!pendingTodos ? pendingTodos.length : 0})`}
+        />
       </RadioGroup>
 
       <FormLabel

@@ -80,6 +80,7 @@ export default function Todo(): ReactElement {
           handleChange={handleFilter}
           handleSearchChange={handleNewSearch}
           searchValue={search}
+          todos={filteredTodos}
           value={visibility}
         />
       )}
