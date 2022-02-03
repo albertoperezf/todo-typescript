@@ -6,7 +6,7 @@ Sample app using React (memo) with Typescript and Material UI (MUI) for the comp
 
 In order to use the repo user only need to clone the repo and run the following command:
 
-`npm intall` or ``yarn
+`npm intall` or `yarn`
 
 ## Run
 
